@@ -1,0 +1,26 @@
+/**
+ * media queries mixins
+ */
+responsive(breakpoint)
+  @media screen and (min-width: breakpoint)
+    {block}
+
+ultrawide()
+  @media screen and (min-width: $ultrawide)
+    {block}
+
+widescreen()
+  @media screen and (min-width: $widescreen)
+    {block}
+
+desktop()
+  @media screen and (min-width: $desktop)
+    {block}
+
+tablet()
+  @media screen and (min-width: $tablet)
+    {block}
+
+mobile()
+  @media screen and (max-width: (($tablet - 1)))
+    {block}
