@@ -4,12 +4,13 @@
 </template>
 
 <script>
+import AppNavbar from './components/AppNavbar.vue';
+
 export default {
-  name: "app",
+  name: 'app',
   components: {
   }
 };
 </script>
 
-<style lang="stylus">
-</style>
+<style lang="stylus"></style>
