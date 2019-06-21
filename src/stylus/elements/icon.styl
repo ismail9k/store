@@ -1,0 +1,26 @@
+.icon
+  display: inline-block
+  width: 1em
+  height: 1em
+  vertical-align: middle
+  font-size: 1em
+  line-height: inherit
+
+  &:not(:last-child)
+    margin-right: $margin
+
+  // generate color modifiers
+  for color in 'primary' 'blue' 'red'
+    $color = lookup('$' + color)
+
+    &.is-{color}
+      fill: $color
+
+  // generate size modifiers
+  &.is-small
+    width: 0.75em
+    height: 0.75em
+
+  &.is-large
+    width: 2em
+    height: 2em
