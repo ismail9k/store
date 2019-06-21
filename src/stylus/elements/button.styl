@@ -1,0 +1,49 @@
+.button
+  position: relative
+  display: inline-flex
+  justify-content: center
+  align-items: center
+  margin-bottom: $margin
+  padding: $padding ($padding * 2)
+  outline: none
+  border-width: 1px
+  border-style: solid
+  border-color: transparent
+  border-radius: 4px
+  color: $white
+  vertical-align: middle
+  text-align: center
+  text-decoration: none
+  font-size: 14px
+  line-height: 1.3
+  cursor: pointer
+  user-select: none
+  fill: $white
+
+  &.is-primary
+    border-color: $primary
+    background-color: $primary
+
+    &:hover
+      background-color: darken($primary, 30%)
+      color: $white
+      fill: $white
+
+    &.is-clean,
+    &.is-outline
+      background-color: transparent
+      color: $primary
+      fill: $primary
+
+      &:hover
+        background-color: $primary
+        color: $white
+        fill: $white
+
+  &.is-clean
+    padding: 0
+    border: 0
+
+    &:hover:not(.is-outline)
+      background-color: transparent
+      fill: $dark
