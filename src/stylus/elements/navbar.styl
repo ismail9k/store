@@ -1,0 +1,63 @@
+.navbar
+  display: flex
+  margin: 0
+  padding: $padding ($padding * 2)
+  width: 100%
+  background-color: $white
+  box-shadow: 0 1px 20px alpha($dark, 15%)
+  font-weight: 600
+
+  &.is-fixed
+    position: fixed
+    top: 0
+    right: 0
+    left: 0
+    z-index: 9999
+    transition: 0.4s
+
+.navbar-container
+  display: flex
+  flex: 1 0
+  margin: auto
+  max-width: 1300px
+
+.navbar-brand
+  display: flex
+  align-items: center
+  font-size: 20px
+
+.navbar-start,
+.navbar-end
+  display: flex
+  flex: 1
+
+.navbar-brand
+  margin-left: $margin
+
+  img
+    display: block
+    max-height: 40px
+
+.navbar-end
+  justify-content: flex-end
+
+.navbar-item
+  display: flex
+  justify-content: center
+  align-items: center
+  padding: 0 2 * $padding
+  min-height: 50px
+  color: $black
+  text-decoration: none
+  white-space: nowrap
+  cursor: pointer
+
+  &.dropdown
+    height: auto
+
+  &:hover,
+  &:focus
+    color: $primary
+
+  .button
+    margin-bottom: 0
