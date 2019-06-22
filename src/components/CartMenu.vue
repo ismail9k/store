@@ -1,16 +1,16 @@
 <template lang="pug">
-.cartmenu
+.cart-menu
   h2.u-sr-only cart menu
-  .cartmenu-arrow
-  ul.cartmenu-list
-    li.cartmenu-item(v-for="i in 3")
-      .cartmenu-image
+  .cart-menu-arrow
+  ul.cart-menu-list
+    li.cart-menu-item(v-for="i in 3")
+      .cart-menu-image
         img(src="https://images.pexels.com/photos/1598505/pexels-photo-1598505.jpeg?cs=srgb&dl=air-jordan-design-footwear-1598505.jpg&fm=jpg" alt="product")
-      .cartmenu-info
-        h3.cartmenu-title Lorem ipsum dolor sit amet Lore
-        h4.cartmenu-price $10
-  .cartmenu-footer
-    .cartmenu-total
+      .cart-menu-info
+        h3.cart-menu-title Lorem ipsum dolor sit amet Lore
+        h4.cart-menu-price $10
+  .cart-menu-footer
+    .cart-menu-total
       small Total:  
       strong $150
     AppButton(state="primary" :block="true") Checkout
@@ -18,12 +18,12 @@
 
 <script>
 export default {
-  name: 'CartMenu'
+  name: 'Cart-Menu'
 };
 </script>
 
 <style lang="stylus">
-.cartmenu
+.cart-menu
   position: absolute
   top: 50px
   right: -20px
@@ -34,7 +34,7 @@ export default {
   background-color: $white
   box-shadow: 0 1px 20px alpha($dark, 20%)
 
-.cartmenu-arrow
+.cart-menu-arrow
   position: absolute
   top: -5px
   right: 35px
@@ -45,41 +45,41 @@ export default {
   box-shadow: 0 -12px 20px alpha($dark, 20%)
   transform: rotate(45deg)
 
-.cartmenu-list
+.cart-menu-list
   display: flex
   flex-direction: column
   margin: 0
   padding: 0
   list-style-type: none
 
-.cartmenu-title
+.cart-menu-title
   margin: 0.5em 0
   white-space: initial
   font-size: 14px
 
-.cartmenu-price
+.cart-menu-price
   margin: 0.3em 0
   font-size: 14px
 
-.cartmenu-item
+.cart-menu-item
   display: flex
   align-items: center
 
   &:not(:last-child)
     margin-bottom: 10px
 
-.cartmenu-image
+.cart-menu-image
   flex: 1 0
   padding: 10px
 
   img
     max-width: 100%
 
-.cartmenu-info
+.cart-menu-info
   flex: 3 0
   padding: 5px
 
-.cartmenu-footer
+.cart-menu-footer
   display: flex
   flex-direction: column
   align-items: center
@@ -88,7 +88,7 @@ export default {
   border-top: 1px solid $gray
   marign-top: 20px
 
-.cartmenu-total
+.cart-menu-total
   margin-bottom: 10px
 </style>
 
