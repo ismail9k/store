@@ -13,7 +13,7 @@
     .cart-menu-total
       small Total:  
       strong $150
-    AppButton(state="primary" :block="true") Checkout
+    AppButton(state="primary" block) Checkout
 </template>
 
 <script>
@@ -91,4 +91,3 @@ export default {
 .cart-menu-total
   margin-bottom: 10px
 </style>
-

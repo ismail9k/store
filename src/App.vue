@@ -10,11 +10,18 @@
       :currentPage="5"
     )
 
+    ProductModal
+
 </template>
 
 <script>
+import ProductModal from './components/ProductModal';
+
 export default {
-  name: 'app'
+  name: 'app',
+  components: {
+    ProductModal
+  }
 };
 </script>
 

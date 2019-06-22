@@ -7,9 +7,9 @@ header.navbar
     .navbar-start
     .navbar-end
       .navbar-item
-        AppButton(state="primary" :outline="true") Login
+        AppButton(state="primary" outline) Login
       .navbar-item
-        AppButton(state="primary" :clean="true")
+        AppButton(state="primary" clean)
           AppIcon(name="cart" size="large" color="priamry")
         CartMenu
 </template>
