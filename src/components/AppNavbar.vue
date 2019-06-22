@@ -10,12 +10,14 @@ header.navbar
         AppButton(state="primary" outline) Login
       .navbar-item
         AppButton(state="primary" clean ref="cartButton" @click="toggleCartMenu")
+          .navbar-bubble(v-if="cart.length") {{ cart.length }}
           AppIcon(name="cart" size="large" color="priamry")
         CartMenu(v-if="isCartVisiable" ref="cartMenu")
 </template>
 
 <script>
 import CartMenu from './CartMenu';
+import { mapState } from 'vuex';
 
 export default {
   name: 'AppNavbar',
@@ -24,6 +26,7 @@ export default {
       isCartVisiable: false
     };
   },
+  computed: mapState(['cart']),
   methods: {
     toggleCartMenu(e) {
       if (!this.isCartVisiable) {

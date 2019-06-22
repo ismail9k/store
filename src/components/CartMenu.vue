@@ -2,13 +2,15 @@
 .cart-menu
   h2.u-sr-only cart menu
   .cart-menu-arrow
-  ul.cart-menu-list
+  ul.cart-menu-list(v-if="cart.length")
     li.cart-menu-item(v-for="item in cart")
       .cart-menu-image
         img(:src="item.featuredPhoto" :alt="item.name")
       .cart-menu-info
         h3.cart-menu-title {{ item.name }}
         h4.cart-menu-price ${{ item.price * item.quantity }}
+  .cart-menu-empty(v-else)
+    img(src="@/assets/img/no-data.svg" alt="no data")
   .cart-menu-footer
     .cart-menu-total
       small Total:  
@@ -63,6 +65,15 @@ export default {
   padding: 0
   max-height: 300px
   list-style-type: none
+
+.cart-menu-empty
+  display: flex
+  justify-content: center
+  align-items: center
+  padding: 20px
+
+  img
+    max-width: 150px
 
 .cart-menu-title
   margin: 0.5em 0

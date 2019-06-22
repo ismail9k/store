@@ -21,7 +21,7 @@
         div(class="column is-4")
           ProductCounter(v-model="quantity")
         div(class="column is-5")
-          AppButton(state="primary" block @click.stop="addToCart({ product: product, quantity: quantity })") ADD TO CART
+          AppButton(state="primary" block @click="addProductToCart") ADD TO CART
 
       .product-modal-row(class="row is-middle")
         div(class="column is-3")
@@ -105,6 +105,10 @@ export default {
       this.selectedSize = '';
       this.quantity = 1;
       this.currentTab = 'description';
+    },
+    addProductToCart() {
+      this.addToCart({ product: this.product, quantity: this.quantity });
+      this.hide();
     }
   },
   components: {
