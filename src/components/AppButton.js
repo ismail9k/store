@@ -13,6 +13,10 @@ export default {
     clean: {
       type: Boolean,
       default: false
+    },
+    block: {
+      type: Boolean,
+      default: false
     }
   },
   render(h, { props, slots }) {
@@ -22,6 +26,9 @@ export default {
     }
     if (props.clean) {
       styleClasses.push('is-clean');
+    }
+    if (props.block) {
+      styleClasses.push('is-block');
     }
     return h(
       'button',

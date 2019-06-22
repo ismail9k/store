@@ -11,10 +11,16 @@ header.navbar
       .navbar-item
         AppButton(state="primary" :clean="true")
           AppIcon(name="cart" size="large" color="priamry")
+        CartMenu
 </template>
 
 <script>
+import CartMenu from './CartMenu';
+
 export default {
-  name: 'AppNavbar'
+  name: 'AppNavbar',
+  components: {
+    CartMenu
+  }
 };
 </script>
