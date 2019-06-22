@@ -15,7 +15,7 @@ export default {
     },
     color: {
       type: String,
-      default: 'primary'
+      default: 'normal'
     }
   },
   render(h, { props, data }) {

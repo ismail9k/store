@@ -1,10 +1,5 @@
 <template>
-  <svg
-    id="starRating"
-    class="stars-rating"
-    preserveAspectRatio="xMidYMin meet"
-    viewBox="0 0 130 24"
-  >
+  <svg id="starRating" class="stars-rating" preserveAspectRatio="xMidYMin meet" viewBox="0 0 130 24">
     <defs>
       <clipPath id="clip-path">
         <path
@@ -29,7 +24,7 @@
       <use width="24.08" height="22.95" transform="translate(105.64 0.58)" xlink:href="#star"></use>
     </g>
     <g class="stars-mask">
-      <rect id="fill" class="stars-fill" :width="rate / 5 * 130" height="24"></rect>
+      <rect id="fill" class="stars-fill" :width="(rate / 5) * 130" height="24"></rect>
     </g>
   </svg>
 </template>
@@ -45,7 +40,6 @@ export default {
   }
 };
 </script>
-
 
 <style lang="stylus">
 .stars-rating

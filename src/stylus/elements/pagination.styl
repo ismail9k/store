@@ -1,0 +1,67 @@
+.pagination
+  display: inline-flex
+  flex-wrap: wrap
+  align-items: top
+  margin: $margin 0
+  padding: 0
+  list-style-type: none
+
+.pagination-nav
+  text-align: center
+
+.pagination-item,
+.pagination-next,
+.pagination-prev
+  position: relative
+  display: inline-flex
+  justify-content: center
+  align-items: center
+  padding: $padding
+  width: 2em
+  height: 2em
+  outline-width: 0
+  outline-offset: 0
+  border-width: 1px 0
+  border-style: solid
+  border-color: $primary
+  text-decoration: none
+  font-size: 16px
+  cursor: pointer
+
+  &.is-disabled
+    border-color: $gray
+    color: $gray
+    fill: $gray
+
+  &:focus
+    outline-color: 0
+
+.pagination-item
+  background-color: $white
+  color: $primary
+  fill: $primary
+
+  &.is-active,
+  &:active,
+  &:hover:not(.is-disabled)
+    background-color: alpha($primary, 10%)
+
+.pagination-next,
+.pagination-prev
+  z-index: 1
+  border-radius: 2px
+  background: $primary
+  color: $white
+  fill: $white
+
+.pagination-next
+  margin-left: -1px
+
+.pagination-prev
+  margin-right: -1px
+
+.pagination-next,
+.pagination-prev
+  &:active,
+  &:hover:not(.is-disabled)
+    background-color: alpha($primary, 90%)
