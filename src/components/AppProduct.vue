@@ -1,16 +1,16 @@
 <template lang="pug">
 .product(:class="{'is-highlighted': highlight}")
   .product-image
-    img(src="https://images.pexels.com/photos/1598505/pexels-photo-1598505.jpeg?cs=srgb&dl=air-jordan-design-footwear-1598505.jpg&fm=jpg" alt="product")
+    img(:src="data.featuredPhoto" :alt="data.name")
   .product-info
-    h2.product-title Lorem ipsum dolor sit
+    h2.product-title {{ data.name }}
     .product-rating
-      StarRating(:rate="4.3")
-      span 25
+      StarRating(:rate="data.rate")
+      span {{ data.reviewCount }}
     p.product-description
-      | Lorem ipsum dolor sit amet consectetur, adipisicing elit. Magni laudantium, harum est nulla rem quo rerum perspiciatis alias vel! Voluptatum expedita harum amet accusantium eum corrupti totam voluptas aut laboriosam.
+      |{{ data.description }}
     .product-footer
-      strong.product-price $1200
+      strong.product-price ${{ data.price }}
       AppButton(state="primary") ADD TO CART
 </template>
 

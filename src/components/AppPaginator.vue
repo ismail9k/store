@@ -1,11 +1,13 @@
 <template lang="pug">
 nav.pagination-nav(aria-label="Page navigation" v-show="totalPages > 1")
   ul.pagination
-    li(v-if="currentPage !== 1")
+    li
       a.pagination-prev(
         href=""
-        @click.prevent="paginator(currentPage - 1)"
+        @click.prevent="paginator(value - 1)"
         aria-label="Previous"
+        :class="{'is-disabled': value === 1}"
+        :disabled="value === 1"
       )
         AppIcon(name="left")
 
@@ -14,19 +16,21 @@ nav.pagination-nav(aria-label="Page navigation" v-show="totalPages > 1")
         :href="`#${n}`"
         v-if="inRange(n) || n <= 2  || n >= totalPages - 1"
         @click.prevent="paginator(n)"
-        :class="{ 'is-active': currentPage === n }"
+        :class="{ 'is-active': value === n }"
       ) {{ n }}
       a.pagination-item(
         :href="`#${n}`"
         v-else-if=" n - 1 === upper  || n + 1 === lower"
-        :class="{ 'is-active': currentPage === n }"
+        :class="{ 'is-active': value === n }"
       ) ...
 
-    li(v-if="currentPage !== totalPages")
+    li
       a.pagination-next(
         href=""
-        @click.prevent="paginator(currentPage + 1)"
+        @click.prevent="paginator(value + 1)"
         aria-label="Next"
+        :class="{'is-disabled': value === totalPages}"
+        :disabled="value === totalPages"
       )
         AppIcon(name="right")
 
@@ -40,12 +44,9 @@ export default {
       type: Number,
       default: 0
     },
-    currentPage: {
+    value: {
       type: Number,
       default: 0
-    },
-    paginator: {
-      default: null
     }
   },
   data() {
@@ -63,11 +64,14 @@ export default {
   },
   methods: {
     updateRanges() {
-      this.lower = Math.max(this.currentPage - 2, 1);
-      this.upper = Math.min(this.currentPage + 2, this.totalPages);
+      this.lower = Math.max(this.value - 2, 1);
+      this.upper = Math.min(this.value + 2, this.totalPages);
     },
     inRange(n) {
       return n <= this.upper && n >= this.lower;
+    },
+    paginator(page) {
+      this.$emit('input', page);
     }
   }
 };

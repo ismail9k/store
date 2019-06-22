@@ -21,7 +21,6 @@
   height: 2em
   outline-width: 0
   outline-offset: 0
-  border-width: 1px 0
   border-style: solid
   border-color: $primary
   text-decoration: none
@@ -29,14 +28,18 @@
   cursor: pointer
 
   &.is-disabled
-    border-color: $gray
-    color: $gray
-    fill: $gray
+    border-color: $blue
+    border-color: $slategray
+    background-color: $gray
+    pointer-events: none
+    user-select: none
+    coursor: allowed
 
   &:focus
     outline-color: 0
 
 .pagination-item
+  border-width: 1px 0
   background-color: $white
   color: $primary
   fill: $primary
@@ -49,6 +52,7 @@
 .pagination-next,
 .pagination-prev
   z-index: 1
+  border-width: 1px
   border-radius: 2px
   background: $primary
   color: $white

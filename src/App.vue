@@ -3,11 +3,11 @@
   AppNavbar
   main.app-main
     .products
-      AppProduct(v-for="(product, indx) in 7" :data="{}" :key="indx" :highlight="indx === 0")
+      AppProduct(v-for="(product, indx) in products" :data="product" :key="indx" :highlight="indx === 0")
 
     AppPaginator(
-      :totalPages="10",
-      :currentPage="5"
+      :totalPages="3",
+      v-model="currentPage"
     )
 
     ProductModal(v-if="false")
@@ -16,11 +16,31 @@
 
 <script>
 import ProductModal from './components/ProductModal';
+import { mapState, mapActions } from 'vuex';
 
 export default {
   name: 'app',
+  data() {
+    return {
+      currentPage: 1
+    };
+  },
+  computed: mapState(['products']),
+  watch: {
+    currentPage(page) {
+      this.fetchProducts(page);
+    }
+  },
+  methods: {
+    fetchProducts(page) {
+      this.$store.dispatch('fetchProducts', { page, perPage: 7 });
+    }
+  },
   components: {
     ProductModal
+  },
+  created() {
+    this.fetchProducts(this.currentPage);
   }
 };
 </script>
