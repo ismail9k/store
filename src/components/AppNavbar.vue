@@ -11,7 +11,7 @@ header.navbar
       .navbar-item
         AppButton(state="primary" clean)
           AppIcon(name="cart" size="large" color="priamry")
-        CartMenu
+        CartMenu(v-if="false")
 </template>
 
 <script>

@@ -10,7 +10,7 @@
       :currentPage="5"
     )
 
-    ProductModal
+    ProductModal(v-if="false")
 
 </template>
 
