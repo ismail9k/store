@@ -1,16 +1,27 @@
 <template lang="pug">
 #app
-  | hello world
+  AppNavbar
+  main.app-main
+    .products
+      AppProduct(v-for="(product, indx) in 7" :data="{}" :key="indx" :highlight="indx === 0")
+
 </template>
 
 <script>
-import AppNavbar from './components/AppNavbar.vue';
-
 export default {
-  name: 'app',
-  components: {
-  }
+  name: 'app'
 };
 </script>
 
-<style lang="stylus"></style>
+<style lang="stylus">
+.app-main
+  margin: auto
+  padding: 50px 0
+  max-width: 1300px
+
+.products
+  display: grid
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr))
+  grid-auto-rows: 400px
+  grid-gap: 20px
+</style>
