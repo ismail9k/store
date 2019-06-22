@@ -8,14 +8,18 @@
         :data="product"
         :key="indx"
         :featured="product.featuredProduct"
-        )
+        @showDetails="showProductModal"
+      )
 
     AppPaginator(
       :totalPages="3",
       v-model="currentPage"
     )
 
-    ProductModal(v-if="false")
+    ProductModal(
+      ref="productModal"
+      :product="currentProduct"
+    )
 
 </template>
 
@@ -27,7 +31,8 @@ export default {
   name: 'app',
   data() {
     return {
-      currentPage: 1
+      currentPage: 1,
+      currentProduct: {}
     };
   },
   computed: mapState(['products']),
@@ -39,6 +44,10 @@ export default {
   methods: {
     fetchProducts(page) {
       this.$store.dispatch('fetchProducts', { page, perPage: 7 });
+    },
+    showProductModal(product) {
+      this.currentProduct = product;
+      this.$refs.productModal.show();
     }
   },
   components: {

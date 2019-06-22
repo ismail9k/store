@@ -1,17 +1,23 @@
 <template lang="pug">
-.product-modal-wrapper
+.product-modal-wrapper(
+  v-if="isVisiable"
+  tabindex="-1"
+  role="dialog"
+  :aria-hidden="!isVisiable"
+  @click.self="hide"
+)
   .product-modal(class="row")
     .product-modal-gallery(class="column is-desktop-6")
-      ProductGallery(:images="images")
+      ProductGallery(:images="product.photos")
 
     .product-modal-info(class="column is-desktop-6")
 
-      h3.product-modal-title lorem olor sit amet consectetu
+      h3.product-modal-title {{ product.name }}
       h4.product-modal-subtitle REF 122/33
 
       .product-modal-row(class="row is-middle")
         div(class="column is-3")
-          strong.product-modal-price $150
+          strong.product-modal-price ${{ product.price * quantity }}
         div(class="column is-4")
           ProductCounter(v-model="quantity")
         div(class="column is-5")
@@ -59,8 +65,7 @@
             a(@click="currentTab = tab") {{ tab }}
         .product-modal-description
           p(v-show="currentTab === 'description'")
-            | Lorem, ipsum dolor sit amet consectetur adipisicing elit. In sed saepe est iure aut error ducimus. Quo, expedita possimus, eos quia debitis unde aliquam perferendis, ex quibusdam labore minima dignissimos.
-            | Lorem, ipsum dolor sit amet consectetur adipisicing elit. In sed saepe est iure aut error ducimus. Quo, expedita possimus, eos quia debitis unde aliquam perferendis, ex quibusdam labore minima dignissimos.
+            | {{product.description}}
           p(v-show="currentTab === 'shipping'")
             | Lorem, ipsum dolor sit amet consectetur adipisicing elit. In sed saepe est iure aut error
           p(v-show="currentTab === 'return'")
@@ -74,19 +79,31 @@ import ProductCounter from './ProductCounter';
 
 export default {
   name: 'ProductModal',
+  props: {
+    product: {
+      type: Object|null
+    }
+  },
   data() {
     return {
       quantity: 1,
       currentTab: 'description',
       selectedColor: '',
       selectedSize: '',
-      images: [
-        'https://images.pexels.com/photos/1598505/pexels-photo-1598505.jpeg?cs=srgb&dl=air-jordan-design-footwear-1598505.jpg&fm=jpg',
-        'https://images.pexels.com/photos/35674/shoes-leather-pair-fashion.jpg?cs=srgb&dl=footwear-pair-of-shoes-35674.jpg&fm=jpg',
-        'https://images.pexels.com/photos/35191/shoes-leather-single-fashion.jpg?cs=srgb&dl=brown-casual-comfort-35191.jpg&fm=jpg',
-        'https://images.pexels.com/photos/54334/running-shoe-shoe-brooks-highly-functional-54334.jpeg?cs=srgb&dl=footwear-shoe-sneakers-54334.jpg&fm=jpg'
-      ]
+      isVisiable: false
     };
+  },
+  methods: {
+    show() {
+      this.isVisiable = true;
+    },
+    hide() {
+      this.isVisiable = false;
+      this.selectedColor = '';
+      this.selectedSize = '';
+      this.quantity = 1;
+      this.currentTab = 'description';
+    }
   },
   components: {
     ProductGallery,
@@ -110,7 +127,7 @@ export default {
 
 .product-modal
   margin-bottom: 50px
-  padding: 20px
+  padding: 40px 20px
   min-height: 400px
   max-width: 1000px
   width: 100%

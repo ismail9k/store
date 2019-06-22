@@ -1,6 +1,7 @@
 <template lang="pug">
 .product(
   :class="{'is-featured': featured}"
+  @click="$emit('showDetails', data)"
   )
   .product-image
     img(:src="data.featuredPhoto" :alt="data.name")
