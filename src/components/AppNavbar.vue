@@ -2,7 +2,7 @@
 header.navbar
   .navbar-container
     .navbar-brand
-      | Online Store
+      img(src="@/assets/img/logo.png" alt="online store")
       h1(class="u-sr-only") Online Store
     .navbar-start
     .navbar-end
