@@ -21,7 +21,7 @@
         div(class="column is-4")
           ProductCounter(v-model="quantity")
         div(class="column is-5")
-          AppButton(state="primary" block) ADD TO CART
+          AppButton(state="primary" block @click.stop="addToCart({ product: product, quantity: quantity })") ADD TO CART
 
       .product-modal-row(class="row is-middle")
         div(class="column is-3")
@@ -76,12 +76,13 @@
 <script>
 import ProductGallery from './ProductGallery';
 import ProductCounter from './ProductCounter';
+import { mapMutations } from 'vuex';
 
 export default {
   name: 'ProductModal',
   props: {
     product: {
-      type: Object|null
+      type: Object | null
     }
   },
   data() {
@@ -94,6 +95,7 @@ export default {
     };
   },
   methods: {
+    ...mapMutations(['addToCart']),
     show() {
       this.isVisiable = true;
     },

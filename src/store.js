@@ -13,6 +13,9 @@ export default new Vuex.Store({
   mutations: {
     showProducts(state, { products }) {
       state.products = products;
+    },
+    addToCart(state, { product, quantity }) {
+      state.cart.push({ ...product, quantity });
     }
   },
   actions: {

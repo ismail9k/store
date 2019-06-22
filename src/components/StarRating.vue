@@ -34,7 +34,7 @@ export default {
   name: 'StarRating',
   props: {
     rate: {
-      type: Number|String,
+      type: Number | String,
       default: 0
     }
   }

@@ -14,11 +14,12 @@
       |{{ data.description }}
     .product-footer
       strong.product-price ${{ data.price }}
-      AppButton(state="primary") ADD TO CART
+      AppButton(state="primary" @click.stop="addToCart({ product: data, quantity: 1 })") ADD TO CART
 </template>
 
 <script>
 import StarRating from './StarRating';
+import { mapMutations } from 'vuex';
 
 export default {
   name: 'AppProduct',
@@ -31,6 +32,9 @@ export default {
       type: Boolean,
       default: false
     }
+  },
+  methods: {
+    ...mapMutations(['addToCart'])
   },
   components: {
     StarRating

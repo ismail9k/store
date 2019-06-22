@@ -19,7 +19,7 @@ export default {
       default: false
     }
   },
-  render(h, { props, slots }) {
+  render(h, { props, slots, listeners, data }) {
     const styleClasses = ['button', `is-${props.state}`];
     if (props.outline) {
       styleClasses.push('is-outline');
@@ -33,7 +33,9 @@ export default {
     return h(
       'button',
       {
-        class: styleClasses.join(' ')
+        class: styleClasses.join(' '),
+        on: listeners,
+        ref: data.ref
       },
       slots().default
     );

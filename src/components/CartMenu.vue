@@ -3,22 +3,32 @@
   h2.u-sr-only cart menu
   .cart-menu-arrow
   ul.cart-menu-list
-    li.cart-menu-item(v-for="i in 3")
+    li.cart-menu-item(v-for="item in cart")
       .cart-menu-image
-        img(src="https://images.pexels.com/photos/1598505/pexels-photo-1598505.jpeg?cs=srgb&dl=air-jordan-design-footwear-1598505.jpg&fm=jpg" alt="product")
+        img(:src="item.featuredPhoto" :alt="item.name")
       .cart-menu-info
-        h3.cart-menu-title Lorem ipsum dolor sit amet Lore
-        h4.cart-menu-price $10
+        h3.cart-menu-title {{ item.name }}
+        h4.cart-menu-price ${{ item.price * item.quantity }}
   .cart-menu-footer
     .cart-menu-total
       small Total:  
-      strong $150
+      strong ${{totalPrice}}
     AppButton(state="primary" block) Checkout
 </template>
 
 <script>
+import { mapState } from 'vuex';
+
 export default {
-  name: 'Cart-Menu'
+  name: 'Cart-Menu',
+  computed: {
+    ...mapState(['cart']),
+    totalPrice() {
+      return this.cart.reduce((subTotal, product) => {
+        return subTotal + product.price * product.quantity;
+      }, 0);
+    }
+  }
 };
 </script>
 
@@ -48,8 +58,10 @@ export default {
 .cart-menu-list
   display: flex
   flex-direction: column
+  overflow: auto
   margin: 0
   padding: 0
+  max-height: 300px
   list-style-type: none
 
 .cart-menu-title
