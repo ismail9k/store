@@ -3,7 +3,12 @@
   AppNavbar
   main.app-main
     .products
-      AppProduct(v-for="(product, indx) in products" :data="product" :key="indx" :highlight="indx === 0")
+      AppProduct(
+        v-for="(product, indx) in products"
+        :data="product"
+        :key="indx"
+        :featured="product.featuredProduct"
+        )
 
     AppPaginator(
       :totalPages="3",

@@ -1,5 +1,7 @@
 <template lang="pug">
-.product(:class="{'is-highlighted': highlight}")
+.product(
+  :class="{'is-featured': featured}"
+  )
   .product-image
     img(:src="data.featuredPhoto" :alt="data.name")
   .product-info
@@ -24,7 +26,7 @@ export default {
       type: Object,
       required: true
     },
-    highlight: {
+    featured: {
       type: Boolean,
       default: false
     }
@@ -44,7 +46,7 @@ export default {
   border-radius: 4px
   box-shadow: 0 1px 10px alpha($dark, 20%)
 
-  &.is-highlighted
+  &.is-featured
     flex-direction: row
     grid-column: span 2
 
@@ -55,7 +57,7 @@ export default {
   align-items: center
   padding: 5px
 
-  .is-highlighted &
+  .is-featured &
     flex: 2
 
   img
@@ -81,7 +83,7 @@ export default {
     line-height: 15px
 
 .product-info
-  .is-highlighted &
+  .is-featured &
     display: flex
     flex: 3
     flex-direction: column
@@ -92,7 +94,7 @@ export default {
   margin-top: 30px
   color: $slategray
 
-  .is-highlighted &
+  .is-featured &
     display: block
     flex: 1
 

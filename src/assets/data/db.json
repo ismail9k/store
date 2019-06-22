@@ -96,7 +96,7 @@
       "rate": "3.5",
       "reviewsCount": "50",
       "price": "1500",
-      "featuredProduct": true,
+      "featuredProduct": false,
       "featuredPhoto": "https://images.pexels.com/photos/1598505/pexels-photo-1598505.jpeg?cs=srgb&dl=air-jordan-design-footwear-1598505.jpg&fm=jpg",
       "photos": [
         "https://images.pexels.com/photos/1598505/pexels-photo-1598505.jpeg?cs=srgb&dl=air-jordan-design-footwear-1598505.jpg&fm=jpg",
