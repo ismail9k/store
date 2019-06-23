@@ -5,7 +5,7 @@
     .products
       AppProduct(
         v-for="(product, indx) in isLoading ? 7 : products"
-        :data="product"
+        :data="isLoading ? {} : product"
         :key="indx"
         :featured="isLoading ? indx === 0 : product.featuredProduct"
         :loading="isLoading"
