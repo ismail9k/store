@@ -8,10 +8,12 @@ header.navbar
     .navbar-end
       .navbar-item
         AppButton(state="primary" outline) Login
-      .navbar-item
+      .navbar-item(:class="{'is-adding-item': addingItemToCart}")
         AppButton(state="primary" clean ref="cartButton" @click="toggleCartMenu")
           .navbar-bubble(v-if="cart.length") {{ cart.length }}
           AppIcon(name="cart" size="large" color="priamry")
+        .cart-product(v-if="addingItemToCart")
+          img(:src="cart[cart.length - 1].featuredPhoto")
         CartMenu(v-if="isCartVisiable" ref="cartMenu")
 </template>
 
@@ -26,7 +28,7 @@ export default {
       isCartVisiable: false
     };
   },
-  computed: mapState(['cart']),
+  computed: mapState(['cart', 'addingItemToCart']),
   methods: {
     toggleCartMenu(e) {
       if (!this.isCartVisiable) {
@@ -51,3 +53,21 @@ export default {
   }
 };
 </script>
+
+<style lang="stylus">
+.cart-product
+  position: absolute
+  top: 10px
+  z-index: 30
+  width: 40px
+  transform: translateY(50px)
+  animation: fade-in-up 0.9s both
+
+  img
+    width: 100%
+
+.is-adding-item
+  .navbar-bubble
+    animation: jello-horizontal 0.9s 0.9s both
+</style>
+

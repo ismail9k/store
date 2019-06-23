@@ -9,6 +9,7 @@ export default new Vuex.Store({
   state: {
     products: [],
     cart: [],
+    addingItemToCart: false,
     imageObserver: new IntersectionObserver((entries, observer) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -26,7 +27,24 @@ export default new Vuex.Store({
       state.products = products;
     },
     addToCart(state, { product, quantity }) {
+      // add item to cart list
       state.cart.push({ ...product, quantity });
+
+      // notify user that item has been added to the cart
+      // if there's an item being add, reset animation
+      if (this.timeOut) {
+        state.addingItemToCart = false;
+        clearTimeout(this.timeOut);
+        setTimeout(() => {
+          state.addingItemToCart = true;
+        }, 0);
+        return;
+      }
+      // trigger cart animation
+      state.addingItemToCart = true;
+      this.timeOut = setTimeout(() => {
+        state.addingItemToCart = false;
+      }, 1800);
     },
     observe(state, el) {
       state.imageObserver.observe(el);

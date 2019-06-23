@@ -68,7 +68,7 @@ export default {
 <style lang="stylus">
 .app-main
   margin: auto
-  padding: 50px 0
+  padding: 100px 0 50px
   max-width: 1300px
 
 .products
