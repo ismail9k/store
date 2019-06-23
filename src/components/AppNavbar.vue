@@ -70,4 +70,3 @@ export default {
   .navbar-bubble
     animation: jello-horizontal 0.9s 0.9s both
 </style>
-
