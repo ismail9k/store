@@ -39,6 +39,26 @@
         color: $white
         fill: $white
 
+  &.is-danger
+    border-color: $danger
+    background-color: $danger
+
+    &:hover
+      background-color: darken($danger, 30%)
+      color: $white
+      fill: $white
+
+    &.is-clean,
+    &.is-outline
+      background-color: transparent
+      color: $danger
+      fill: $danger
+
+      &:hover
+        background-color: $danger
+        color: $white
+        fill: $white
+
   &.is-clean
     padding: 0
     border: 0

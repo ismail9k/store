@@ -7,6 +7,9 @@
   @click.self="hide"
 )
   .product-modal(class="row")
+    .product-modal-dissmis(@click="hide")
+      AppButton(state="danger" clean)
+        AppIcon(name="close" size="medium")
     .product-modal-gallery(class="column is-desktop-6")
       ProductGallery(:images="product.photos")
 
@@ -152,6 +155,12 @@ export default {
 .product-modal-description
   padding: 20px 0
   color: $slategray
+
+.product-modal-dissmis
+  position: absolute
+  top: 0
+  right: 0
+  padding: 20px
 
 .product-modal-row
   margin: 10px 0
