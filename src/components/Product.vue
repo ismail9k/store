@@ -36,7 +36,7 @@ import StarRating from './StarRating';
 import { mapMutations } from 'vuex';
 
 export default {
-  name: 'AppProduct',
+  name: 'Product',
   props: {
     data: {
       type: Object,

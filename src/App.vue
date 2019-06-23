@@ -3,7 +3,7 @@
   AppNavbar
   main.app-main
     .products
-      AppProduct(
+      Product(
         v-for="(product, indx) in isLoading ? 7 : products"
         :data="isLoading ? {} : product"
         :key="indx"
@@ -25,7 +25,9 @@
 </template>
 
 <script>
+import Product from './components/Product';
 import ProductModal from './components/ProductModal';
+
 import { mapState } from 'vuex';
 
 export default {
@@ -57,6 +59,7 @@ export default {
     }
   },
   components: {
+    Product,
     ProductModal
   },
   created() {
