@@ -21,7 +21,7 @@ export default new Vuex.Store({
   actions: {
     async fetchProducts({ commit }, { page, perPage }) {
       // fake fetching data
-      await new Promise(resolve => setTimeout(resolve, 300));
+      await new Promise(resolve => setTimeout(resolve, 1000));
       const start = perPage * (page - 1);
       const end = start + perPage;
       const products = db.products.slice(start, end);

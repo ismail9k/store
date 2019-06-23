@@ -1,0 +1,25 @@
+.text-loader
+  display: block
+  max-width: 300px
+  width: 70%
+  height: 14px
+  border-radius: 2px
+  background: linear-gradient(to right, alpha($gray, 0) 0, $gray 30%, $gray 70%, alpha($gray, 0) 100%)
+  background-color: $light
+  background-size: 200px 100%
+  background-repeat: no-repeat
+  animation: loader-shimmer 1.5s linear infinite forwards
+
+  .rtls &
+    animation: loader-shimmer-rtl 1.5s linear infinite forwards
+
+  + .text-loader
+    margin-top: 10px
+    max-width: 150px
+    width: 60%
+
+  &:nth-child(2)
+    max-width: 170px
+
+  &:nth-child(3)
+    max-width: 140px

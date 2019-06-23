@@ -4,10 +4,11 @@
   main.app-main
     .products
       AppProduct(
-        v-for="(product, indx) in products"
+        v-for="(product, indx) in isLoading ? 7 : products"
         :data="product"
         :key="indx"
-        :featured="product.featuredProduct"
+        :featured="isLoading ? indx === 0 : product.featuredProduct"
+        :loading="isLoading"
         @showDetails="showProductModal"
       )
 
@@ -35,7 +36,12 @@ export default {
       currentProduct: {}
     };
   },
-  computed: mapState(['products']),
+  computed: {
+    ...mapState(['products']),
+    isLoading() {
+      return !this.products.length;
+    }
+  },
   watch: {
     currentPage(page) {
       this.fetchProducts(page);

@@ -1,5 +1,10 @@
 <template>
-  <svg id="starRating" class="stars-rating" preserveAspectRatio="xMidYMin meet" viewBox="0 0 130 24">
+  <svg
+    id="starRating"
+    class="stars-rating"
+    preserveAspectRatio="xMidYMin meet"
+    viewBox="0 0 130 24"
+  >
     <defs>
       <clipPath id="clip-path">
         <path
@@ -11,6 +16,7 @@
       <symbol id="star" data-name="star" viewBox="0 0 24.08 22.95">
         <path
           class="stars-item"
+          :class="{'is-gray': rate === 0}"
           d="M11.81,19.39l-6.67,3.5a.5.5,0,0,1-.73-.53l1.28-7.42a.51.51,0,0,0-.15-.44L.15,9.25a.5.5,0,0,1,.28-.86L7.88,7.3A.5.5,0,0,0,8.26,7L11.59.28a.5.5,0,0,1,.9,0L15.82,7a.49.49,0,0,0,.38.27l7.45,1.09a.5.5,0,0,1,.28.86L18.54,14.5a.51.51,0,0,0-.15.44l1.28,7.42a.51.51,0,0,1-.74.53l-6.66-3.5A.47.47,0,0,0,11.81,19.39Z"
         ></path>
       </symbol>
@@ -51,6 +57,10 @@ export default {
 .stars-item
   stroke: $yellow
   fill: none
+
+  &.is-gray
+    fill: $gray
+    stroke: $gray
 
 .stars-mask
   clip-path: url('#clip-path')

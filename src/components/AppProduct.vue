@@ -5,16 +5,30 @@
   )
   .product-image
     img(:src="data.featuredPhoto" :alt="data.name")
-  .product-info
-    h2.product-title {{ data.name }}
-    .product-rating
-      StarRating(:rate="data.rate")
-      span {{ data.reviewCount }}
-    p.product-description
-      |{{ data.description }}
-    .product-footer
-      strong.product-price ${{ data.price }}
-      AppButton(state="primary" @click.stop="addToCart({ product: data, quantity: 1 })") ADD TO CART
+  template(v-if="loading")
+   .product-info
+      h2.product-title: .text-loader
+      .product-rating
+        StarRating(:rate="data.rate")
+        span 99
+      .product-description
+        .text-loader(v-for="n in 5")
+      .product-footer
+        strong.product-price
+        AppButton(state="") ADD TO CART
+
+
+  template(v-else)
+    .product-info
+      h2.product-title {{ data.name }}
+      .product-rating
+        StarRating(:rate="data.rate")
+        span {{ data.reviewsCount }}
+      p.product-description
+        |{{ data.description }}
+      .product-footer
+        strong.product-price ${{ data.price }}
+        AppButton(state="primary" @click.stop="addToCart({ product: data, quantity: 1 })") ADD TO CART
 </template>
 
 <script>
@@ -26,11 +40,15 @@ export default {
   props: {
     data: {
       type: Object,
-      required: true
+      default: () => {}
     },
     featured: {
       type: Boolean,
       default: false
+    },
+    loading: {
+      type: Boolean,
+      default: true
     }
   },
   methods: {
@@ -74,6 +92,7 @@ export default {
 
 .product-title
   margin: 0.5em 0
+  width: 100%
   font-size: 16px
 
 .product-rating
@@ -97,6 +116,7 @@ export default {
 .product-description
   display: none
   margin-top: 30px
+  width: 100%
   color: $slategray
 
   .is-featured &

@@ -89,8 +89,8 @@ export default {
     return {
       quantity: 1,
       currentTab: 'description',
-      selectedColor: '',
-      selectedSize: '',
+      selectedColor: 'blue',
+      selectedSize: '37',
       isVisiable: false
     };
   },
@@ -101,8 +101,6 @@ export default {
     },
     hide() {
       this.isVisiable = false;
-      this.selectedColor = '';
-      this.selectedSize = '';
       this.quantity = 1;
       this.currentTab = 'description';
     },
