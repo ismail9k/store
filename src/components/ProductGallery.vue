@@ -27,8 +27,12 @@ export default {
 <style lang="stylus">
 .gallery
   display: flex
+  flex-direction: column
   align-items: center
   padding: 20px
+
+  +desktop()
+    flex-direction: row
 
 .gallery-view
   flex: 1
@@ -39,10 +43,14 @@ export default {
 
 .gallery-list
   display: flex
-  flex-direction: column
+  flex-direction: row
+
+  +desktop()
+    flex-direction: column
 
 .gallery-item
-  margin-bottom: 10px
+  margin-right: 10px
+  margin-left: 10px
   padding: 1px
   width: 60px
   height: 60px
@@ -50,6 +58,9 @@ export default {
   border-radius: 4px
   background-color: $white
   cursor: pointer
+
+  +desktop()
+    margin: 0 0 10px
 
   img
     width: 100%

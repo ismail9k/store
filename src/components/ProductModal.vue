@@ -129,18 +129,26 @@ export default {
   z-index: 20
   display: flex
   justify-content: center
-  align-items: center
+  align-items: flex-start
+  overflow: auto
+  padding: 10px
   background-color: alpha($black, 80%)
 
+  +desktop()
+    align-items: center
+
 .product-modal
-  margin-bottom: 50px
   padding: 40px 20px
-  min-height: 400px
   max-width: 1000px
-  width: 100%
   border-radius: 4px
   background-color: $white
   box-shadow: 0 1px 20px alpha($dark, 10%)
+
+  +desktop()
+    margin-bottom: 50px
+
+.row.product-modal
+  width: 100%
 
 .product-modal-title
   margin: 0 0 0.5em

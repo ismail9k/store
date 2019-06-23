@@ -69,9 +69,10 @@ export default {
   border-radius: 4px
   box-shadow: 0 1px 10px alpha($dark, 20%)
 
-  &.is-featured
-    flex-direction: row
-    grid-column: span 2
+  +tablet()
+    &.is-featured
+      flex-direction: row
+      grid-column: span 2
 
 .product-image
   display: flex
@@ -80,8 +81,9 @@ export default {
   align-items: center
   padding: 20px
 
-  .is-featured &
-    flex: 2
+  +tablet()
+    .is-featured &
+      flex: 2
 
   img
     display: block
@@ -107,11 +109,12 @@ export default {
     line-height: 15px
 
 .product-info
-  .is-featured &
-    display: flex
-    flex: 3
-    flex-direction: column
-    align-items: flex-start
+  +tablet()
+    .is-featured &
+      display: flex
+      flex: 3
+      flex-direction: column
+      align-items: flex-start
 
 .product-description
   display: none
@@ -119,9 +122,10 @@ export default {
   width: 100%
   color: $slategray
 
-  .is-featured &
-    display: block
-    flex: 1
+  +tablet()
+    .is-featured &
+      display: block
+      flex: 1
 
 .product-footer
   display: flex
