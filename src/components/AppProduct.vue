@@ -4,7 +4,7 @@
   @click="$emit('showDetails', data)"
   )
   .product-image
-    img(:src="data.featuredPhoto" :alt="data.name")
+    AppImg(:src="data.featuredPhoto" :alt="data.name" :key="data.name")
   template(v-if="loading")
    .product-info
       h2.product-title: .text-loader
@@ -78,7 +78,7 @@ export default {
   flex: 1
   justify-content: center
   align-items: center
-  padding: 5px
+  padding: 20px
 
   .is-featured &
     flex: 2

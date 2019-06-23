@@ -1,7 +1,9 @@
 import Vue from 'vue';
 import App from './App.vue';
 import store from './store';
+
 import './stylus/index.styl';
+import 'intersection-observer';
 
 Vue.config.productionTip = false;
 

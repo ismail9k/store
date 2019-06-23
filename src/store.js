@@ -8,7 +8,18 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   state: {
     products: [],
-    cart: []
+    cart: [],
+    imageObserver: new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const lazyImage = entry.target;
+          lazyImage.src = lazyImage.dataset.src;
+          lazyImage.removeAttribute('data-loading');
+          lazyImage.removeAttribute('data-src');
+          observer.unobserve(lazyImage);
+        }
+      });
+    })
   },
   mutations: {
     showProducts(state, { products }) {
@@ -16,6 +27,12 @@ export default new Vuex.Store({
     },
     addToCart(state, { product, quantity }) {
       state.cart.push({ ...product, quantity });
+    },
+    observe(state, el) {
+      state.imageObserver.observe(el);
+    },
+    unobserve(state, el) {
+      state.imageObserver.unobserve(el);
     }
   },
   actions: {

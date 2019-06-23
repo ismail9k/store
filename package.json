@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "core-js": "^2.6.5",
+    "intersection-observer": "^0.7.0",
     "pug": "^2.0.4",
     "vue": "^2.6.10",
     "vuex": "^3.0.1"

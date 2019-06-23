@@ -1,10 +1,10 @@
 <template lang="pug">
 .gallery
   .gallery-view
-    img(:src="images[currentIndex]" alt="image")
+    AppImg(:src="images[currentIndex]" alt="image")
   .gallery-list
     .gallery-item(v-for="(item, indx) in images" @click="currentIndex = indx")
-      img(:src="item" alt="image")
+      AppImg(:src="item" alt="image")
 </template>
 
 <script>
@@ -31,6 +31,7 @@ export default {
   padding: 20px
 
 .gallery-view
+  flex: 1
   padding: 0 20px
 
   img
