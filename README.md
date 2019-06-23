@@ -1,5 +1,9 @@
 # store
 
+A test project
+
+Project live [demo](https://abdelrahman3d.github.io/store/)
+
 ## Project setup
 ```
 yarn install
@@ -15,15 +19,13 @@ yarn run serve
 yarn run build
 ```
 
-### Run your tests
-```
-yarn run test
-```
 
 ### Lints and fixes files
 ```
 yarn run lint
 ```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+### Deploy to gh-pages
+```
+yarn run deploy
+```
