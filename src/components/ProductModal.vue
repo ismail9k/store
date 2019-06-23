@@ -82,7 +82,7 @@ export default {
   name: 'ProductModal',
   props: {
     product: {
-      type: Object | null
+      type: [Object, null]
     }
   },
   data() {
